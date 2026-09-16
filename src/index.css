@@ -1,8 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @layer base {
   html {
@@ -16,7 +28,12 @@
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display tracking-tight;
   }
 
@@ -33,7 +50,9 @@
   .reveal {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reveal.is-visible {
@@ -41,16 +60,58 @@
     transform: translateY(0);
   }
 
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
-  .reveal-delay-5 { transition-delay: 0.5s; }
+  .reveal-delay-1 {
+    transition-delay: 0.1s;
+  }
+  .reveal-delay-2 {
+    transition-delay: 0.2s;
+  }
+  .reveal-delay-3 {
+    transition-delay: 0.3s;
+  }
+  .reveal-delay-4 {
+    transition-delay: 0.4s;
+  }
+  .reveal-delay-5 {
+    transition-delay: 0.5s;
+  }
 
   .hero-text-line {
     opacity: 0;
     transform: translateY(40px);
     animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .interactive-card {
+    transition:
+      background-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .interactive-card-icon {
+    transition:
+      color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .interactive-card-number {
+    transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .interactive-card:hover {
+      background-color: theme("colors.graphite.850");
+      border-color: rgb(201 169 110 / 0.4);
+    }
+
+    .interactive-card:hover .interactive-card-icon {
+      color: theme("colors.accent.DEFAULT");
+      transform: scale(1.1);
+    }
+
+    .interactive-card:hover .interactive-card-number {
+      color: theme("colors.accent.DEFAULT");
+    }
   }
 
   .parallax-bg {
@@ -83,7 +144,7 @@
   }
 
   .link-underline::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: -2px;

@@ -77,8 +77,6 @@ export default function Contact() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      // [PLACEHOLDER: Замініть цей блок на фактичну відправку даних форми
-      //  — наприклад, на serverless function, email API або Supabase.]
       setSubmitted(true);
       setFormData(initialData);
       setTimeout(() => setSubmitted(false), 5000);
@@ -232,7 +230,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       className={inputClass("email")}
-                      placeholder="email@example.com"
+                      placeholder="Ваш email"
                     />
                     {errors.email && (
                       <p className="mt-2 text-xs text-red-400 flex items-center gap-1">
@@ -252,7 +250,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       className={inputClass("phone")}
-                      placeholder="+38 (0XX) XXX-XX-XX"
+                      placeholder="Ваш телефон"
                     />
                     {errors.phone && (
                       <p className="mt-2 text-xs text-red-400 flex items-center gap-1">
@@ -310,10 +308,6 @@ export default function Contact() {
                   >
                     <span>Надіслати запит</span>
                   </button>
-                  <p className="mt-4 text-xs text-graphite-500">
-                    [Placeholder: Форма не підключена, потім можна буде
-                    підключити її наприклад до телеграм бота, або видалити]
-                  </p>
                 </div>
               </form>
             )}

@@ -1,6 +1,6 @@
-import { processSteps } from '@/data/services';
-import SectionHeading from '@/components/ui/SectionHeading';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { processSteps } from "@/data/services";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Process() {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
@@ -15,14 +15,17 @@ export default function Process() {
           className="mb-16 lg:mb-20"
         />
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px bg-graphite-300/10">
+        <div
+          ref={ref}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-px bg-graphite-300/10"
+        >
           {processSteps.map((step, index) => (
             <div
               key={step.number}
-              className={`group bg-graphite-900 p-8 lg:p-10 hover:bg-graphite-850 transition-colors duration-700 ease-expo reveal reveal-delay-${Math.min(index + 1, 5)} ${isVisible ? 'is-visible' : ''}`}
+              className={`group interactive-card border border-transparent bg-graphite-900 p-8 lg:p-10 reveal reveal-delay-${Math.min(index + 1, 5)} ${isVisible ? "is-visible" : ""}`}
             >
               <div className="flex flex-col">
-                <span className="text-5xl lg:text-6xl font-extrabold text-graphite-600 group-hover:text-accent transition-colors duration-500 ease-expo mb-6 tracking-tight">
+                <span className="interactive-card-number text-5xl lg:text-6xl font-extrabold text-graphite-600 mb-6 tracking-tight">
                   {step.number}
                 </span>
                 <h3 className="text-lg font-bold tracking-tight text-white mb-4 uppercase">

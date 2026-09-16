@@ -1,8 +1,8 @@
-import { Compass, Ruler, Calculator, Wrench, Search, Box } from 'lucide-react';
-import type { ComponentType } from 'react';
-import { services } from '@/data/services';
-import SectionHeading from '@/components/ui/SectionHeading';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { Compass, Ruler, Calculator, Wrench, Search, Box } from "lucide-react";
+import type { ComponentType } from "react";
+import { services } from "@/data/services";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const iconMap: Record<string, ComponentType<{ className?: string }>> = {
   compass: Compass,
@@ -25,19 +25,22 @@ export default function Services() {
           className="mb-16 lg:mb-20"
         />
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-graphite-300/10">
+        <div
+          ref={ref}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-graphite-300/10"
+        >
           {services.map((service, index) => {
             const Icon = iconMap[service.icon] || Compass;
             return (
               <div
                 key={service.number}
-                className={`group bg-graphite-950 p-8 lg:p-10 hover:bg-graphite-850 transition-colors duration-700 ease-expo reveal reveal-delay-${(index % 3) + 1} ${isVisible ? 'is-visible' : ''}`}
+                className={`group interactive-card border border-transparent bg-graphite-950 p-8 lg:p-10 reveal reveal-delay-${(index % 3) + 1} ${isVisible ? "is-visible" : ""}`}
               >
                 <div className="flex items-start justify-between mb-8">
                   <span className="text-xs font-bold tracking-wider text-graphite-400">
                     {service.number}
                   </span>
-                  <Icon className="w-6 h-6 text-accent transition-transform duration-500 ease-expo group-hover:scale-110" />
+                  <Icon className="interactive-card-icon w-6 h-6 text-graphite-500" />
                 </div>
                 <h3 className="text-xl font-bold tracking-tight text-white mb-4 uppercase">
                   {service.title}

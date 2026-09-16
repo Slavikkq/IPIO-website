@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowDown } from 'lucide-react';
-import { heroImage } from '@/data/projects';
-import { useParallax } from '@/hooks/useScrollReveal';
+import { ArrowRight, ArrowDown } from "lucide-react";
+import { heroImage } from "@/data/projects";
+import { useParallax } from "@/hooks/useScrollReveal";
 
 export default function Hero() {
   const parallaxRef = useParallax<HTMLDivElement>(0.4);
@@ -10,7 +9,10 @@ export default function Hero() {
     <section className="relative h-screen min-h-[700px] w-full overflow-hidden">
       {/* Background image with parallax */}
       <div className="absolute inset-0 z-0">
-        <div ref={parallaxRef} className="parallax-bg absolute inset-0 scale-110">
+        <div
+          ref={parallaxRef}
+          className="parallax-bg absolute inset-0 scale-110"
+        >
           <img
             src={heroImage}
             alt="Інженерна споруда — міст"
@@ -27,7 +29,7 @@ export default function Hero() {
         <div className="max-w-4xl">
           <div
             className="hero-text-line mb-6 flex items-center gap-3"
-            style={{ animationDelay: '0.2s' }}
+            style={{ animationDelay: "0.2s" }}
           >
             <span className="w-12 h-px bg-accent" />
             <span className="text-sm font-medium tracking-ultra-wide uppercase text-accent">
@@ -36,39 +38,45 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight text-white">
-            <span className="hero-text-line block" style={{ animationDelay: '0.3s' }}>
+            <span
+              className="hero-text-line block"
+              style={{ animationDelay: "0.3s" }}
+            >
               ІНЖЕНЕРІЯ,
             </span>
-            <span className="hero-text-line block" style={{ animationDelay: '0.45s' }}>
+            <span
+              className="hero-text-line block"
+              style={{ animationDelay: "0.45s" }}
+            >
               ЩО ПОЄДНУЄ.
             </span>
           </h1>
 
           <p
             className="hero-text-line mt-8 text-lg md:text-xl text-graphite-200 max-w-2xl leading-relaxed"
-            style={{ animationDelay: '0.6s' }}
+            style={{ animationDelay: "0.6s" }}
           >
-            ІППО — архітектурна та інженерна компанія, що працює з мостовими та
+            ІПІО — архітектурна та інженерна компанія, що працює з мостовими та
             інфраструктурними проєктами.
           </p>
 
           <div
             className="hero-text-line mt-10 flex flex-col sm:flex-row gap-4"
-            style={{ animationDelay: '0.75s' }}
+            style={{ animationDelay: "0.75s" }}
           >
-            <Link
-              to="/#projects"
+            <a
+              href="/#projects"
               className="group inline-flex items-center justify-center gap-3 bg-accent text-graphite-950 hover:bg-accent-light px-8 py-4 text-sm font-medium tracking-wide uppercase transition-all duration-500 ease-expo"
             >
               <span>Переглянути проєкти</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-500 ease-expo group-hover:translate-x-1" />
-            </Link>
-            <Link
-              to="/#contact"
+            </a>
+            <a
+              href="/#contact"
               className="group inline-flex items-center justify-center gap-3 border border-graphite-300/30 text-white hover:border-accent hover:text-accent px-8 py-4 text-sm font-medium tracking-wide uppercase transition-all duration-500 ease-expo"
             >
               <span>Зв'язатися з нами</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

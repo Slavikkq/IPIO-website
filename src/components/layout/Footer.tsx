@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
-import Logo from '@/components/ui/Logo';
-import { companyInfo, navLinks } from '@/data/company';
+import { Phone, Mail, MapPin } from "lucide-react";
+import Logo from "@/components/ui/Logo";
+import { companyInfo, navLinks } from "@/data/company";
 
 export default function Footer() {
   return (
@@ -21,13 +20,13 @@ export default function Footer() {
             </h4>
             <nav className="flex flex-col gap-3">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.href}
-                  to={link.href}
+                  href={link.href}
                   className="text-sm text-graphite-400 hover:text-white transition-colors duration-300"
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
             </nav>
           </div>
@@ -38,7 +37,7 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-4">
               <a
-                href={`tel:${companyInfo.phone.replace(/[^+\d]/g, '')}`}
+                href={`tel:${companyInfo.phone.replace(/[^+\d]/g, "")}`}
                 className="flex items-center gap-3 text-sm text-graphite-400 hover:text-white transition-colors duration-300"
               >
                 <Phone className="w-4 h-4 text-accent shrink-0" />
@@ -70,7 +69,7 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-graphite-300/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-xs text-graphite-500">
-            © 2026 ІППО. Усі права захищені.
+            © 2026 ІПІО. Усі права захищені.
           </p>
           <p className="text-xs text-graphite-500">
             Архітектура та інженерія мостів
